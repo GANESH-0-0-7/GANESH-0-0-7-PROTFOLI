@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { createRoot } from 'react-dom/client';
+
 import {
   ArrowUpRight,
   Github,
@@ -9,21 +10,27 @@ import {
   Download,
   Code2,
   Sparkles,
-  MapPin,
-  Eye
+  MapPin
 } from 'lucide-react';
 
 import './styles.css';
 
-// Google Drive assets
-const PROFILE_IMAGE =
-  'https://drive.google.com/uc?export=view&id=1_fgJIAz5eJK_kH5LwHVeaXkkrmt9F3Ee';
+// ==========================================
+// LOCAL ASSETS
+// Files are located in the project root.
+// main.jsx is located inside src/.
+// ==========================================
 
-const RESUME_VIEW =
-  'https://drive.google.com/file/d/1lJBF0cPMm-rB7HMPsnBtsYmRuQwX5e-u/view';
+import profileImage from '../ganesh.jpeg';
+import resumePdf from '../Ganesh_C_Resume.pdf';
 
-const RESUME_DOWNLOAD =
-  'https://drive.google.com/uc?export=download&id=1lJBF0cPMm-rB7HMPsnBtsYmRuQwX5e-u';
+const PROFILE_IMAGE = profileImage;
+const RESUME_VIEW = resumePdf;
+const RESUME_DOWNLOAD = resumePdf;
+
+// ==========================================
+// PROJECTS
+// ==========================================
 
 const projects = [
   {
@@ -31,7 +38,13 @@ const projects = [
     title: 'Memento',
     type: 'AI · RAG · Full Stack',
     desc: 'An AI-powered document knowledge workspace. Upload documents, retrieve relevant source chunks, and ask questions through a conversational assistant.',
-    stack: ['Java 21', 'Spring Boot 3', 'Spring AI', 'React', 'PostgreSQL + pgvector'],
+    stack: [
+      'Java 21',
+      'Spring Boot 3',
+      'Spring AI',
+      'React',
+      'PostgreSQL + pgvector'
+    ],
     link: 'https://github.com/GANESH-0-0-7/Memento',
     featured: true
   },
@@ -40,7 +53,15 @@ const projects = [
     title: 'VisionMate',
     type: 'Major Project · Assistive AI',
     desc: 'AI-powered assistive smart glasses designed to support visually impaired users with real-time object detection, face recognition, object memory, obstacle guidance, GPS navigation and audio feedback.',
-    stack: ['Python', 'YOLOv8', 'InsightFace', 'Raspberry Pi', 'Flask', 'WebSocket', 'OpenStreetMap'],
+    stack: [
+      'Python',
+      'YOLOv8',
+      'InsightFace',
+      'Raspberry Pi',
+      'Flask',
+      'WebSocket',
+      'OpenStreetMap'
+    ],
     link: 'https://github.com/GANESH-0-0-7/Major_project_model',
     featured: true
   },
@@ -49,7 +70,13 @@ const projects = [
     title: 'JobNova',
     type: 'Recruitment · Full Stack',
     desc: 'A recruitment platform with candidate and recruiter workflows for job posting, job discovery, applications and application tracking.',
-    stack: ['React', 'Spring Boot', 'MongoDB Atlas', 'JWT', 'Serper API'],
+    stack: [
+      'React',
+      'Spring Boot',
+      'MongoDB Atlas',
+      'JWT',
+      'Serper API'
+    ],
     link: 'https://job-nova-liard.vercel.app/',
     github: 'https://github.com/GANESH-0-0-7/JobNova_0.1'
   },
@@ -58,7 +85,13 @@ const projects = [
     title: 'JeevantaX',
     type: 'Healthcare · AI',
     desc: 'A healthcare platform supporting appointment scheduling and electronic health records, with AI-assisted features and location-based hospital discovery.',
-    stack: ['React', 'Spring Boot', 'MongoDB Atlas', 'Gemini API', 'OpenStreetMap'],
+    stack: [
+      'React',
+      'Spring Boot',
+      'MongoDB Atlas',
+      'Gemini API',
+      'OpenStreetMap'
+    ],
     link: 'https://jeevanta-x-git-main-asura8.vercel.app/'
   },
   {
@@ -66,7 +99,12 @@ const projects = [
     title: 'Smart Expense Tracker',
     type: 'FinTech · MERN',
     desc: 'A personal finance and expense-tracking application built using the MERN stack.',
-    stack: ['MongoDB', 'Express.js', 'React', 'Node.js'],
+    stack: [
+      'MongoDB',
+      'Express.js',
+      'React',
+      'Node.js'
+    ],
     link: 'https://github.com/GANESH-0-0-7/Smart-Expense-Tracker-System'
   },
   {
@@ -74,7 +112,10 @@ const projects = [
     title: 'Real-Time Face Recognition',
     type: 'Computer Vision',
     desc: 'A Python computer-vision project focused on real-time face recognition using OpenCV.',
-    stack: ['Python', 'OpenCV'],
+    stack: [
+      'Python',
+      'OpenCV'
+    ],
     link: 'https://github.com/GANESH-0-0-7/Real-Time-Face-Recognition-'
   },
   {
@@ -82,19 +123,71 @@ const projects = [
     title: 'MealRush',
     type: 'Frontend Development',
     desc: 'A food-related web application built using core web technologies.',
-    stack: ['HTML5', 'CSS3', 'JavaScript'],
+    stack: [
+      'HTML5',
+      'CSS3',
+      'JavaScript'
+    ],
     link: 'https://github.com/GANESH-0-0-7/MealRush'
   }
 ];
 
+// ==========================================
+// SKILLS
+// ==========================================
+
 const skills = [
   ['Programming', 'Java', 'JavaScript', 'Python', 'C'],
-  ['Backend', 'Spring Boot', 'Spring MVC', 'Spring Data JPA', 'REST APIs', 'JWT', 'Spring Security'],
-  ['Frontend', 'React.js', 'TypeScript', 'HTML5', 'CSS3', 'Tailwind CSS'],
-  ['Databases', 'PostgreSQL', 'MongoDB', 'MongoDB Atlas', 'MySQL'],
-  ['AI & Computer Vision', 'Spring AI', 'RAG', 'YOLOv8', 'InsightFace', 'OpenCV'],
-  ['Tools', 'Git', 'GitHub', 'Maven', 'Postman', 'VS Code']
+
+  [
+    'Backend',
+    'Spring Boot',
+    'Spring MVC',
+    'Spring Data JPA',
+    'REST APIs',
+    'JWT',
+    'Spring Security'
+  ],
+
+  [
+    'Frontend',
+    'React.js',
+    'TypeScript',
+    'HTML5',
+    'CSS3',
+    'Tailwind CSS'
+  ],
+
+  [
+    'Databases',
+    'PostgreSQL',
+    'MongoDB',
+    'MongoDB Atlas',
+    'MySQL'
+  ],
+
+  [
+    'AI & Computer Vision',
+    'Spring AI',
+    'RAG',
+    'YOLOv8',
+    'InsightFace',
+    'OpenCV'
+  ],
+
+  [
+    'Tools',
+    'Git',
+    'GitHub',
+    'Maven',
+    'Postman',
+    'VS Code'
+  ]
 ];
+
+// ==========================================
+// MAIN APP
+// ==========================================
 
 function App() {
   const [imageFailed, setImageFailed] = React.useState(false);
@@ -102,8 +195,13 @@ function App() {
   return (
     <div className="site-shell">
 
+      {/* NAVIGATION */}
+
       <header className="nav wrap">
-        <a className="wordmark" href="#home">GC<span>.</span></a>
+
+        <a className="wordmark" href="#home">
+          GC<span>.</span>
+        </a>
 
         <nav>
           <a href="#about">About</a>
@@ -114,20 +212,23 @@ function App() {
 
         <a
           className="nav-cta"
-          href={RESUME_DOWNLOAD}
+          href={RESUME_VIEW}
           target="_blank"
           rel="noopener noreferrer"
         >
           Resume <Download size={14} />
         </a>
+
       </header>
 
       <main>
 
-        {/* HERO */}
+        {/* HERO SECTION */}
+
         <section id="home" className="hero wrap">
 
           <div className="hero-copy">
+
             <div className="eyebrow">
               <span className="eyebrow-line" />
               PORTFOLIO · 2026
@@ -146,6 +247,7 @@ function App() {
             </p>
 
             <div className="hero-actions">
+
               <a className="button dark" href="#work">
                 Explore my work <ArrowUpRight size={17} />
               </a>
@@ -153,35 +255,50 @@ function App() {
               <a
                 className="text-link"
                 href={RESUME_DOWNLOAD}
-                target="_blank"
-                rel="noopener noreferrer"
+                download="Ganesh_C_Resume.pdf"
               >
                 Download résumé <Download size={15} />
               </a>
+
             </div>
 
             <div className="hero-meta">
-              <span><MapPin size={14} /> Bengaluru, India</span>
-              <span>JSSATEB · B.E. CSE · 2023—2027</span>
+
+              <span>
+                <MapPin size={14} />
+                Bengaluru, India
+              </span>
+
+              <span>
+                JSSATEB · B.E. CSE · 2023—2027
+              </span>
+
             </div>
+
           </div>
 
           {/* PROFILE IMAGE */}
+
           <div className="portrait-wrap">
+
             <div className="portrait-frame">
 
               {!imageFailed ? (
+
                 <img
                   src={PROFILE_IMAGE}
                   alt="Ganesh C profile"
                   className="profile-image"
                   onError={() => setImageFailed(true)}
                 />
+
               ) : (
+
                 <div className="portrait-placeholder">
                   <span>GC</span>
                   <small>PROFILE IMAGE UNAVAILABLE</small>
                 </div>
+
               )}
 
             </div>
@@ -194,32 +311,62 @@ function App() {
             <div className="vertical-label">
               JAVA · FULL STACK · AI
             </div>
+
           </div>
 
-          <div className="hero-index">01 / INTRODUCTION</div>
+          <div className="hero-index">
+            01 / INTRODUCTION
+          </div>
+
         </section>
 
-        {/* STATS */}
+        {/* STATISTICS */}
+
         <section className="stats-band">
+
           <div className="wrap stats">
-            <div><strong>8.43</strong><span>CGPA</span></div>
-            <div><strong>07</strong><span>PROJECTS</span></div>
-            <div><strong>03<sup>rd</sup></strong><span>HACKATHON PLACE</span></div>
-            <div><strong>2027</strong><span>GRADUATION</span></div>
+
+            <div>
+              <strong>8.43</strong>
+              <span>CGPA</span>
+            </div>
+
+            <div>
+              <strong>07</strong>
+              <span>PROJECTS</span>
+            </div>
+
+            <div>
+              <strong>03<sup>rd</sup></strong>
+              <span>HACKATHON PLACE</span>
+            </div>
+
+            <div>
+              <strong>2027</strong>
+              <span>GRADUATION</span>
+            </div>
+
           </div>
+
         </section>
 
-        {/* ABOUT */}
+        {/* ABOUT SECTION */}
+
         <section id="about" className="section wrap about">
-          <div className="section-kicker">01 — ABOUT</div>
+
+          <div className="section-kicker">
+            01 — ABOUT
+          </div>
 
           <div className="about-content">
+
             <h2>
               Curious by nature.<br />
               <em>Engineer by practice.</em>
             </h2>
 
             <div className="about-text">
+
               <p>
                 I'm pursuing a B.E. in Computer Science and
                 Engineering at JSS Academy of Technical Education,
@@ -237,76 +384,140 @@ function App() {
               </p>
 
               <div className="education">
+
                 <span>EDUCATION</span>
-                <strong>B.E. — Computer Science & Engineering</strong>
-                <small>JSS Academy of Technical Education, Bengaluru · 2023–2027</small>
-                <small>CGPA: 8.43 / 10</small>
+
+                <strong>
+                  B.E. — Computer Science & Engineering
+                </strong>
+
+                <small>
+                  JSS Academy of Technical Education, Bengaluru · 2023–2027
+                </small>
+
+                <small>
+                  CGPA: 8.43 / 10
+                </small>
+
               </div>
+
             </div>
+
           </div>
+
         </section>
 
-        {/* SKILLS */}
+        {/* SKILLS SECTION */}
+
         <section id="skills" className="section skills-section">
+
           <div className="wrap">
-            <div className="section-kicker">02 — TOOLKIT</div>
+
+            <div className="section-kicker">
+              02 — TOOLKIT
+            </div>
 
             <div className="section-heading">
-              <h2>Technologies I<br /><em>work with.</em></h2>
+
+              <h2>
+                Technologies I<br />
+                <em>work with.</em>
+              </h2>
+
               <p>
                 A growing toolkit for building full-stack products,
                 backend systems and intelligent applications.
               </p>
+
             </div>
 
             <div className="skills-grid">
+
               {skills.map(([name, ...items]) => (
+
                 <div className="skill-card" key={name}>
+
                   <div className="skill-icon">
                     <Code2 size={17} />
                   </div>
+
                   <h3>{name}</h3>
+
                   <div className="tags">
+
                     {items.map(item => (
-                      <span key={item}>{item}</span>
+                      <span key={item}>
+                        {item}
+                      </span>
                     ))}
+
                   </div>
+
                 </div>
+
               ))}
+
             </div>
+
           </div>
+
         </section>
 
-        {/* PROJECTS */}
+        {/* PROJECTS SECTION */}
+
         <section id="work" className="section wrap work-section">
-          <div className="section-kicker">03 — SELECTED WORK</div>
+
+          <div className="section-kicker">
+            03 — SELECTED WORK
+          </div>
 
           <div className="section-heading">
-            <h2>Projects with<br /><em>purpose.</em></h2>
+
+            <h2>
+              Projects with<br />
+              <em>purpose.</em>
+            </h2>
+
             <p>
               A selection of academic, personal and full-stack
               projects exploring different areas of software engineering.
             </p>
+
           </div>
 
           <div className="projects">
+
             {projects.map(project => (
+
               <article
                 className={`project ${project.featured ? 'featured' : ''}`}
                 key={project.n}
               >
-                <div className="project-number">{project.n}</div>
+
+                <div className="project-number">
+                  {project.n}
+                </div>
 
                 <div className="project-main">
-                  <div className="project-type">{project.type}</div>
+
+                  <div className="project-type">
+                    {project.type}
+                  </div>
+
                   <h3>{project.title}</h3>
+
                   <p>{project.desc}</p>
 
                   <div className="tags">
+
                     {project.stack.map(item => (
-                      <span key={item}>{item}</span>
+                      <span key={item}>
+                        {item}
+                      </span>
                     ))}
+
                   </div>
+
                 </div>
 
                 <a
@@ -320,6 +531,7 @@ function App() {
                 </a>
 
                 {project.github && (
+
                   <a
                     className="project-link"
                     href={project.github}
@@ -329,20 +541,32 @@ function App() {
                   >
                     <Github size={18} />
                   </a>
+
                 )}
+
               </article>
+
             ))}
+
           </div>
+
         </section>
 
-        {/* ACHIEVEMENT */}
+        {/* ACHIEVEMENT SECTION */}
+
         <section className="achievement">
+
           <div className="wrap achievement-inner">
-            <div className="section-kicker">04 — RECOGNITION</div>
+
+            <div className="section-kicker">
+              04 — RECOGNITION
+            </div>
 
             <div>
+
               <div className="award-label">
-                <Sparkles size={16} /> HACKATHON ACHIEVEMENT
+                <Sparkles size={16} />
+                HACKATHON ACHIEVEMENT
               </div>
 
               <h2>
@@ -354,17 +578,24 @@ function App() {
                 Recognized for developing ReferAI,
                 an AI-powered employee referral platform.
               </p>
+
             </div>
 
             <div className="award-mark">
               03<span>RD</span>
             </div>
+
           </div>
+
         </section>
 
-        {/* CONTACT */}
+        {/* CONTACT SECTION */}
+
         <section id="contact" className="section wrap contact">
-          <div className="section-kicker">05 — GET IN TOUCH</div>
+
+          <div className="section-kicker">
+            05 — GET IN TOUCH
+          </div>
 
           <h2>
             Have a good idea?<br />
@@ -384,8 +615,10 @@ function App() {
           </a>
 
           <div className="contact-links">
+
             <a href="mailto:ganeshac2006@gmail.com">
-              <Mail size={15} /> Email
+              <Mail size={15} />
+              Email
             </a>
 
             <a
@@ -393,7 +626,8 @@ function App() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Linkedin size={15} /> LinkedIn
+              <Linkedin size={15} />
+              LinkedIn
             </a>
 
             <a
@@ -401,7 +635,8 @@ function App() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Github size={15} /> GitHub
+              <Github size={15} />
+              GitHub
             </a>
 
             <a
@@ -409,24 +644,43 @@ function App() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Code2 size={15} /> LeetCode
+              <Code2 size={15} />
+              LeetCode
             </a>
+
           </div>
+
         </section>
 
       </main>
 
+      {/* FOOTER */}
+
       <footer className="footer">
+
         <div className="wrap">
+
           <span>© 2026 Ganesh C</span>
-          <span>Designed with intention · Built with React</span>
-          <a href="#home">Back to top ↑</a>
+
+          <span>
+            Designed with intention · Built with React
+          </span>
+
+          <a href="#home">
+            Back to top ↑
+          </a>
+
         </div>
+
       </footer>
 
     </div>
   );
 }
+
+// ==========================================
+// RENDER APPLICATION
+// ==========================================
 
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>
