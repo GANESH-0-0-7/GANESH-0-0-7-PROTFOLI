@@ -1,0 +1,420 @@
+/*
+  Hover interactions for Ganesh's existing portfolio.
+  Imported after styles.css so the original layout and colors stay intact.
+  Change --hover-gold-dark if you would like a different accent on hover.
+*/
+
+.site-shell {
+  --hover-gold-dark: #806846;
+  --hover-ease: cubic-bezier(.22, 1, .36, 1);
+  --hover-shadow: 0 14px 30px rgba(58, 46, 30, .11);
+}
+
+/* Smooth color, depth and movement for the elements that react to a hover. */
+.site-shell :where(
+  a, .wordmark span, .eyebrow-line, .hero-meta span, .hero-meta svg,
+  h1 em, h2 em, p, .section-kicker, .hero-index, .vertical-label,
+  .portrait-frame, .portrait-note, .note-dot, .portrait-placeholder,
+  .stats strong, .stats span, .education, .education strong,
+  .skill-card, .skill-icon, .skill-icon svg, .skill-card h3,
+  .tags span, .project, .project-number, .project-main h3,
+  .award-label, .award-label svg, .award-mark, .footer span
+) {
+  transition:
+    color .24s ease,
+    background-color .24s ease,
+    border-color .24s ease,
+    box-shadow .32s var(--hover-ease),
+    transform .32s var(--hover-ease),
+    opacity .24s ease;
+}
+
+.site-shell a svg {
+  transition: transform .32s var(--hover-ease);
+}
+
+/* Keep the zoom inside the picture frame. */
+.portrait-frame {
+  overflow: hidden;
+}
+
+.portrait-frame .profile-image {
+  transition: transform .55s var(--hover-ease), filter .4s ease;
+}
+
+.portrait-note {
+  z-index: 3;
+}
+
+.wordmark span {
+  display: inline-block;
+}
+
+/* A small underline grows beneath text links rather than changing the layout. */
+.nav nav a,
+.text-link,
+.contact-links a,
+.footer a {
+  position: relative;
+}
+
+.nav nav a::after,
+.text-link::after,
+.contact-links a::after,
+.footer a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -5px;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform .3s var(--hover-ease);
+}
+
+/* An accent line reveals itself on the active project row. */
+.project {
+  position: relative;
+}
+
+.project::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 3px;
+  background: var(--gold);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform .3s var(--hover-ease);
+}
+
+/* Keep both JobNova links together in the project's action column. */
+.project-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  gap: 9px;
+}
+
+.project-actions .project-link {
+  flex: 0 0 auto;
+}
+
+@media (max-width: 430px) {
+  .project {
+    grid-template-columns: 24px minmax(0, 1fr) 38px;
+  }
+
+  .project-actions .project-link {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/* All links remain visibly usable by keyboard, not just with a mouse. */
+.site-shell a:focus-visible {
+  outline: 2px solid #765b3d;
+  outline-offset: 5px;
+}
+
+.nav nav a:focus-visible,
+.text-link:focus-visible,
+.contact-links a:focus-visible,
+.footer a:focus-visible {
+  color: var(--hover-gold-dark);
+}
+
+.nav nav a:focus-visible::after,
+.text-link:focus-visible::after,
+.contact-links a:focus-visible::after,
+.footer a:focus-visible::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.nav-cta:focus-visible {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+
+.button.dark:focus-visible {
+  background: #51483c;
+  box-shadow: 0 10px 22px rgba(41, 39, 32, .18);
+}
+
+.project:focus-within {
+  background: #ebe4d7;
+}
+
+.project:focus-within::before {
+  transform: scaleY(1);
+  transform-origin: top;
+}
+
+.project:focus-within .project-main h3,
+.project:focus-within .project-number {
+  color: var(--hover-gold-dark);
+}
+
+.project-link:focus-visible {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: #fff;
+}
+
+/* Colors and depth are only applied on devices that can genuinely hover. */
+@media (hover: hover) {
+  .wordmark:hover span,
+  .nav nav a:hover,
+  .text-link:hover,
+  .contact-links a:hover,
+  .footer a:hover {
+    color: var(--hover-gold-dark);
+  }
+
+  .nav nav a:hover::after,
+  .text-link:hover::after,
+  .contact-links a:hover::after,
+  .footer a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  .nav-cta:hover {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--paper);
+    box-shadow: 0 9px 20px rgba(41, 39, 32, .14);
+  }
+
+  .button.dark:hover {
+    background: #51483c;
+    box-shadow: 0 10px 22px rgba(41, 39, 32, .18);
+  }
+
+  .hero-meta span:hover,
+  .hero-intro:hover strong,
+  .section-kicker:hover,
+  .hero-index:hover,
+  .vertical-label:hover {
+    color: var(--hover-gold-dark);
+  }
+
+  .site-shell :is(.hero-intro, .about-text p, .section-heading p, .project p, .achievement p, .contact > p):hover {
+    color: #4c4439;
+  }
+
+  .site-shell :is(h1, h2):hover em {
+    color: #806846;
+  }
+
+  .portrait-wrap:hover .portrait-frame {
+    border-color: #c3b39a;
+    box-shadow: 24px 24px 0 #e5ddcf, 0 18px 35px rgba(58, 46, 30, .1);
+  }
+
+  .portrait-wrap:hover .profile-image {
+    filter: saturate(1.08) contrast(1.02);
+  }
+
+  .portrait-wrap:hover .portrait-note {
+    background: #fffdf8;
+    color: #64533f;
+    box-shadow: 0 12px 28px rgba(58, 46, 30, .14);
+  }
+
+  .portrait-wrap:hover .note-dot {
+    box-shadow: 0 0 0 5px rgba(140, 154, 121, .2);
+  }
+
+  .stats > div:hover strong,
+  .education:hover strong {
+    color: var(--hover-gold-dark);
+  }
+
+  .stats > div:hover span {
+    color: #605544;
+  }
+
+  .education:hover {
+    border-color: var(--gold);
+  }
+
+  .skill-card:hover {
+    background: #fffdf9;
+    border-color: #cdbda8;
+    box-shadow: var(--hover-shadow);
+  }
+
+  .skill-card:hover .skill-icon {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  .skill-card:hover h3 {
+    color: var(--hover-gold-dark);
+  }
+
+  .tags span:hover {
+    background: #e9dfcf;
+    border-color: #c6b69f;
+    color: #5f4c34;
+  }
+
+  .project:hover {
+    background: #ebe4d7;
+  }
+
+  .project:hover::before {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+
+  .project:hover .project-number,
+  .project:hover .project-main h3 {
+    color: var(--hover-gold-dark);
+  }
+
+  .project-link:hover {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: #fff;
+    box-shadow: 0 8px 18px rgba(41, 39, 32, .15);
+  }
+
+  .award-label:hover,
+  .award-mark:hover {
+    color: var(--hover-gold-dark);
+  }
+
+  .footer span:hover {
+    color: #605544;
+  }
+}
+
+/* Movement is deliberately subtle and is disabled for reduced-motion users. */
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .wordmark:hover {
+    transform: translateY(-2px);
+  }
+
+  .wordmark:hover span {
+    transform: translate(1px, -2px);
+  }
+
+  .nav-cta:hover,
+  .button.dark:hover,
+  .footer a:hover {
+    transform: translateY(-3px);
+  }
+
+  .nav-cta:hover svg,
+  .text-link:hover svg {
+    transform: translateY(3px);
+  }
+
+  .button.dark:hover svg,
+  .project-link:hover .lucide-arrow-up-right {
+    transform: translate(3px, -3px);
+  }
+
+  .contact-links a:hover svg,
+  .hero-meta span:hover svg {
+    transform: translateY(-3px);
+  }
+
+  .eyebrow:hover .eyebrow-line {
+    transform: scaleX(1.2);
+  }
+
+  .portrait-wrap:hover .portrait-frame {
+    transform: translateY(-5px);
+  }
+
+  .portrait-wrap:hover .profile-image {
+    transform: scale(1.035);
+  }
+
+  .portrait-wrap:hover .portrait-placeholder {
+    transform: scale(1.025);
+  }
+
+  .portrait-wrap:hover .portrait-note {
+    transform: translate(-3px, -4px);
+  }
+
+  .stats > div:hover strong {
+    transform: translateY(-4px);
+  }
+
+  .education:hover,
+  .section-kicker:hover {
+    transform: translateX(4px);
+  }
+
+  .skill-card:hover {
+    transform: translateY(-6px);
+  }
+
+  .skill-card:hover .skill-icon {
+    transform: rotate(-7deg);
+  }
+
+  .tags span:hover {
+    transform: translateY(-2px);
+  }
+
+  .project:hover .project-number,
+  .project:hover .project-main h3 {
+    transform: translateX(3px);
+  }
+
+  .project-link:hover {
+    transform: translateY(-3px);
+  }
+
+  .project-link:hover .lucide-github {
+    transform: rotate(-8deg);
+  }
+
+  .award-label:hover svg {
+    transform: rotate(-15deg) scale(1.1);
+  }
+
+  .award-mark:hover {
+    transform: translateY(-5px) scale(1.03);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .nav-cta:focus-visible,
+  .button.dark:focus-visible,
+  .project-link:focus-visible {
+    transform: translateY(-3px);
+  }
+
+  .button.dark:focus-visible svg,
+  .project-link:focus-visible .lucide-arrow-up-right {
+    transform: translate(3px, -3px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .site-shell *,
+  .site-shell *::before,
+  .site-shell *::after {
+    transition-duration: 0s !important;
+    animation-duration: 0s !important;
+  }
+}
